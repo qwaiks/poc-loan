@@ -6,7 +6,8 @@ import 'custom_text_field.dart';
 
 class PhoneNoInput extends StatefulWidget {
   final String initialSelection;
-  final ValueChanged<CountryCode> onChanged;
+  final ValueChanged<CountryCode> onChangedCountryCode;
+  final ValueChanged<String> onChangedTextField;
   final FormFieldValidator<String> validator;
   final String hintText, title;
   final String labelText;
@@ -22,7 +23,8 @@ class PhoneNoInput extends StatefulWidget {
     this.enabled,
     this.initialSelection = "GH",
     this.validator,
-    @required this.onChanged,
+    @required this.onChangedCountryCode,
+    this.onChangedTextField,
   }) : super(key: key);
 
   @override
@@ -42,7 +44,7 @@ class _PhoneNoInputState extends State<PhoneNoInput> {
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       onChanged: (CountryCode countryCode) {
         setState(() {
-          widget.onChanged(countryCode);
+          widget.onChangedCountryCode(countryCode);
         });
       },
     );
@@ -53,6 +55,7 @@ class _PhoneNoInputState extends State<PhoneNoInput> {
       keyboardType: TextInputType.number,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       controller: widget.controller,
+      onChanged: widget.onChangedTextField,
       prefixIcon: SizedBox(
         width: 110.0,
         child: _countryCodePicker,

@@ -28,6 +28,7 @@ class CustomTextField extends StatefulWidget {
   final Color borderColor;
   final bool removePadding;
   final bool autofocus;
+  final int maxLength;
 
   const CustomTextField({
     Key key,
@@ -53,6 +54,7 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     this.focusNode,
     this.borderRadius,
+    this.maxLength,
     this.borderColor,
     this.removePadding=false,
     this.bottomPadding = 16.0,
@@ -99,6 +101,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             autofocus: widget.autofocus,
             focusNode: widget.focusNode,
             validator: widget.validator,
+            maxLength: widget.maxLength,
             decoration: InputDecoration(
               isDense: false,
               hintStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
@@ -108,7 +111,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 color: Colors.grey.withOpacity(0.5),
               ),
               hintText: widget.hintText,
-              prefixIcon: widget.prefixIcon ?? widget.icon != null
+              prefixIcon: widget.prefixIcon != null
+                  ? widget.prefixIcon
+                  : widget.icon != null
                   ? Icon(
                 widget.icon,
                 color: Colors.grey.withOpacity(0.4),
