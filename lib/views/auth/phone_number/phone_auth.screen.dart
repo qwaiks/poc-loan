@@ -22,7 +22,7 @@ class PhoneAuthScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final phoneNumber = ref.watch(phoneProvider).state;
     final countryCode = ref.watch(countryCodeProvider).state;
-    final _auth = ref.watch(authRepositoryProvider);
+    final _auth = ref.watch(authenticationProvider);
     return Scaffold(
       body: SafeArea(
         child: Padding(

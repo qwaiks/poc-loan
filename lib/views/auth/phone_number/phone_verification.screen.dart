@@ -13,7 +13,7 @@ class PhoneVerificationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _auth = ref.watch(authRepositoryProvider);
+    final _auth = ref.watch(authenticationProvider);
     return Scaffold(
       body: SafeArea(
         child: Container(
