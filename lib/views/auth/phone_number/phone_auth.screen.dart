@@ -24,17 +24,14 @@ class PhoneAuthScreen extends ConsumerWidget {
     final countryCode = ref.watch(countryCodeProvider).state;
     final _auth = ref.watch(authenticationProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Verify Phone number"),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: ListView(
             children: [
-              const Text(
-                "Enter phone number",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
               Utils.verticalSpacer(),
               PhoneNoInput(
                 onChangedCountryCode: (value) =>

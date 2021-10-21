@@ -15,6 +15,9 @@ class PhoneVerificationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final _auth = ref.watch(authenticationProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Verify Phone number"),
+      ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),

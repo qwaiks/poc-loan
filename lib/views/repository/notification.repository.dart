@@ -32,14 +32,16 @@ class NotificationRepository extends BaseNotificationRepository {
     final uid = _read(firebaseAuthProvider).currentUser.uid;
     final path = FireStorePath.userNotification.replaceAll(":uid", uid);
     final deviceId = await Utils().getId();
+    final fcmToken = await Utils().getFCMToken();
 
     final data = {
       "isInApp": isInApp,
       "timeStamp": DateTime.now().toString(),
-      'deviceId': deviceId
+      'deviceId': deviceId,
+      'fcmToken': fcmToken
     };
     try {
-      await fireStore.collection(path).doc().set(data);
+      //await fireStore.collection(path).doc().set(data);
       await fireStore
           .collection(FireStorePath.generalNotifications)
           .doc()

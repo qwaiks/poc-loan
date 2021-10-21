@@ -36,10 +36,10 @@ class _PhoneNoInputState extends State<PhoneNoInput> {
   Widget build(BuildContext context) {
     final _countryCodePicker = CountryCodePicker(
       initialSelection: widget.initialSelection,
-      favorite: const ['GB', 'GH'],
+      favorite: const ['US', 'GH'],
       showCountryOnly: true,
       showOnlyCountryWhenClosed: false,
-      showFlag: false,
+      showFlag: true,
       alignLeft: true,
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       onChanged: (CountryCode countryCode) {
@@ -57,7 +57,7 @@ class _PhoneNoInputState extends State<PhoneNoInput> {
       controller: widget.controller,
       onChanged: widget.onChangedTextField,
       prefixIcon: SizedBox(
-        width: 110.0,
+        width: 130.0,
         child: _countryCodePicker,
       ),
       validator: widget.validator,

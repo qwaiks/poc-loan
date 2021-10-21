@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.ntim.poc.loan.loan_originator_poc">
    <application
-        android:label="loan_originator_poc"
+        android:label="Poc Loan"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
